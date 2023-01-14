@@ -69,10 +69,34 @@ section{
     font-size: 25px;
 }
 /*Subrrallar texto*/
-[type="checkbox"]:checked + label{
+[type="checkbox"]{
+    opacity:0;
+    z-index: 9;
+}
+/*[type="checkbox"]:checked + label{
     text-decoration: line-through;
     color: green;
+}*/
+
+[type="checkbox"] + label:before{
+    content: "\2714";
+    padding: 0px 4px;
+    background-color: #fff;
+    margin-left: -35px;
+    z-index: 0;
+    margin-right: 5px;
+    color:transparent;
+    border-radius: 5px;
 }
+
+[type="checkbox"]:checked + label:before{
+    color: #fff;
+    background-color: green;
+    transition: .2s;
+    border: none;
+}
+
+
 
 footer{
     display: flex;
