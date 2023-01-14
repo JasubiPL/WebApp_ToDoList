@@ -1,15 +1,10 @@
 const btnAdd = document.getElementById("btn_add");
 const taskArea =  document.getElementById("task_area");
-const checkbox = document.querySelectorAll(".check_box");
+const btnDelete = document.getElementById("btn_delete");
 var numberOfTasks = 0;
-for(let check of checkbox){
-    check.addEventListener("click", clickCheck);
-}
-
-
-
 
 btnAdd.addEventListener("click", createTask);
+btnDelete.addEventListener("click", deleteTask);
 
 function createTask(){
     let message = document.getElementById("input");
@@ -31,11 +26,19 @@ function createTask(){
     
     message.value = "";
     numberOfTasks++;
+
 }
 
-function clickCheck(){
-  
-   
-}
+function deleteTask(){
+    
+    const checkboxs = document.querySelectorAll(".check_box");
 
+    for(let checkbox of checkboxs){
+        if(checkbox.checked === true){
+            checkbox.parentNode.remove();
+        }
+    }
+
+    
+}
 
